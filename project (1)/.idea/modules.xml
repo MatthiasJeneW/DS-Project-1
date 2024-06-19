@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DataCollectionDispatcher/DataCollectionDispatcher.iml" filepath="$PROJECT_DIR$/DataCollectionDispatcher/DataCollectionDispatcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../Projekt/PDFGenerator/PDFGenerator.iml" filepath="$PROJECT_DIR$/../Projekt/PDFGenerator/PDFGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringBootApp/SpringBootApp.iml" filepath="$PROJECT_DIR$/SpringBootApp/SpringBootApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/StationDataController/StationDataController.iml" filepath="$PROJECT_DIR$/StationDataController/StationDataController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project (1).iml" filepath="$PROJECT_DIR$/.idea/project (1).iml" />
+    </modules>
+  </component>
+</project>

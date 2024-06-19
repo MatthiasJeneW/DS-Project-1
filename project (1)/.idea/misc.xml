@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$USER_HOME$/DS/Projekt/rabbitmqechoservice-master/SpringBootApp/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringBootApp/pom.xml" />
+        <option value="$USER_HOME$/DS/Projekt/rabbitmqechoservice-master/DataCollectionDispatcher/pom.xml" />
+        <option value="$PROJECT_DIR$/DataCollectionDispatcher/pom.xml" />
+        <option value="$USER_HOME$/DS/Projekt/StationDataController/pom.xml" />
+        <option value="$PROJECT_DIR$/StationDataController/pom.xml" />
+        <option value="$USER_HOME$/DS/Projekt/PDFGenerator/pom.xml" />
+        <option value="$USER_HOME$/DS/Projekt/DataCollectionReceiver/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="zulu-21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

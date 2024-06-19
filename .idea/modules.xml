@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/project (1)/DataCollectionDispatcher/DataCollectionDispatcher.iml" filepath="$PROJECT_DIR$/project (1)/DataCollectionDispatcher/DataCollectionDispatcher.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project (1)/DataCollectionReceiver/DataCollectionReceiver.iml" filepath="$PROJECT_DIR$/project (1)/DataCollectionReceiver/DataCollectionReceiver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project (1)/PDFGenerator/PDFGenerator.iml" filepath="$PROJECT_DIR$/project (1)/PDFGenerator/PDFGenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project (1)/SpringBootApp/SpringBootApp.iml" filepath="$PROJECT_DIR$/project (1)/SpringBootApp/SpringBootApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project (1)/StationDataController/StationDataCollector.iml" filepath="$PROJECT_DIR$/project (1)/StationDataController/StationDataCollector.iml" />
+      <module fileurl="file://$PROJECT_DIR$/project (1)/StationDataCollector/StationDataController.iml" filepath="$PROJECT_DIR$/project (1)/StationDataCollector/StationDataController.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/project_1.iml" filepath="$PROJECT_DIR$/.idea/project_1.iml" />
+    </modules>
+  </component>
+</project>

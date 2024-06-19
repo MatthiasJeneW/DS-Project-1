@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/project (1)/PDFGenerator/pom.xml" />
+        <option value="$PROJECT_DIR$/project (1)/SpringBootApp/pom.xml" />
+        <option value="$PROJECT_DIR$/project (1)/StationDataController/pom.xml" />
+        <option value="$PROJECT_DIR$/project (1)/DataCollectionReceiver/pom.xml" />
+        <option value="$PROJECT_DIR$/project (1)/DataCollectionDispatcher/pom.xml" />
+        <option value="$PROJECT_DIR$/project (1)/StationDataCollector/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="zulu-22" project-jdk-type="JavaSDK" />
+</project>

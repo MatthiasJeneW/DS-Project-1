@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/project (1)/DataCollectionDispatcher/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project (1)/DataCollectionReceiver/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project (1)/PDFGenerator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project (1)/SpringBootApp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project (1)/StationDataCollector/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/project (1)/StationDataCollector/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
