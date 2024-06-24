@@ -27,7 +27,7 @@ public class HelloController {
     private String customerId;
     private RestTemplate restTemplate;
     private ScheduledService<Boolean> scheduledService;
-    private static final Logger logger = Logger.getLogger(HelloController.class.getName());
+
 
     public HelloController() {
         restTemplate = new RestTemplate();
@@ -38,7 +38,6 @@ public class HelloController {
                     @Override
                     protected Boolean call() throws Exception {
                         String url = "http://localhost:8081/invoices/" + customerId;
-                        logger.info("Checking invoice status for URL: " + url);
                         try {
                             String response = restTemplate.getForObject(url, String.class);
                             return true;
@@ -62,15 +61,18 @@ public class HelloController {
     @FXML
     protected void generateInvoiceButton() {
         customerId = enterID.getText();
-        if (!customerId.isEmpty()) {
+        if (!customerId.isEmpty() && isValidCustomerId(customerId)) {
             String url = "http://localhost:8081/invoices/" + customerId;
-            logger.info("Generating invoice for URL: " + url);
             restTemplate.postForObject(url, null, String.class);
             welcomeText.setText("Invoice generation started for customer ID: " + customerId);
             scheduledService.restart();
         } else {
-            welcomeText.setText("Please enter a valid customer ID.");
+            welcomeText.setText("Please enter a valid customer ID (1,2,3).");
         }
+    }
+
+    private boolean isValidCustomerId(String customerId) {
+        return "1".equals(customerId) || "2".equals(customerId) || "3".equals(customerId);
     }
 
     private void openPDF(String filePath) {
@@ -79,8 +81,6 @@ public class HelloController {
                 File pdfFile = new File(filePath);
                 if (pdfFile.exists()) {
                     Desktop.getDesktop().open(pdfFile);
-                } else {
-                    welcomeText.setText("Invoice file not found.");
                 }
             } catch (IOException ex) {
                 ex.printStackTrace();
