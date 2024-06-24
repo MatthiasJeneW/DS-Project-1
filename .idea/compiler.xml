@@ -2,21 +2,24 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="SpringBootApp" />
-        <module name="StationDataCollector" />
+        <module name="JavaFx" />
         <module name="DataCollectionDispatcher" />
-        <module name="DataCollectionReceiver" />
         <module name="PDFGenerator" />
         <module name="StationDataController" />
+        <module name="StationDataCollector" />
+        <module name="DataCollectionReceiver" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="DataCollectionDispatcher" target="18" />
       <module name="DataCollectionReceiver" target="18" />
+      <module name="JavaFx" target="11" />
       <module name="PDFGenerator" target="18" />
       <module name="SpringBootApp" target="18" />
       <module name="StationDataCollector" target="18" />

@@ -25,14 +25,14 @@ public class RabbitMQConfig {
     private String rabbitmq_Password;
 
 
-    public static final String ECHO_IN_QUEUE_ID = "getCustomerDetails";
-    public static final String ECHO_OUT_QUEUE_ID = "echoOutQueue";
+    public static final String ECHO_OUT_STATION_QUEUE = "echoOutStationQueue";
+    public static final String ECHO_OUT_STATION_DATA_QUEUE = "echoOutStationDataQueue";
 
     @Bean
-    public Queue echoInQueueID(){ return new Queue(ECHO_IN_QUEUE_ID, false); }
+    public Queue echoInQueueID(){ return new Queue(ECHO_OUT_STATION_QUEUE, false); }
 
     @Bean
-    public Queue echoOUTQUEUEID(){ return new Queue(ECHO_OUT_QUEUE_ID, false);}
+    public Queue echoOUTQUEUEID(){ return new Queue(ECHO_OUT_STATION_DATA_QUEUE, false);}
 
     @Bean
     public ConnectionFactory connectionFactory() {
@@ -45,7 +45,7 @@ public class RabbitMQConfig {
     @Bean
     public RabbitTemplate rabbitTemplate(){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
-        rabbitTemplate.setDefaultReceiveQueue(String.valueOf(ECHO_OUT_QUEUE_ID));
+        //rabbitTemplate.setDefaultReceiveQueue(String.valueOf(ECHO_OUT_QUEUE_ID));
         return rabbitTemplate;
     }
 

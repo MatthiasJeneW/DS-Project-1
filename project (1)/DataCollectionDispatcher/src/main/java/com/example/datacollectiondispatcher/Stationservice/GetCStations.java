@@ -23,7 +23,7 @@ public class GetCStations {
         this.cStationsRepository = cStationsRepository;
     }
 
-    @RabbitListener(queues = RabbitMQConfig.ECHO_IN_QUEUE_ID)
+    @RabbitListener(queues = RabbitMQConfig.ECHO_CUSTOMER_ID_QUEUE)
     public void sendChargingStations(String message){
         List<StationEntity> stationEntities =cStationsRepository.findAll()
                 .stream().map(
@@ -33,11 +33,11 @@ public class GetCStations {
                 ).toList();
         //iterate over the length of the list to process each db_url seperately
         for (StationEntity stationEntity : stationEntities) {
-            System.out.println("DB URL: " + stationEntity.getDb_url() + "|" + "customer:" + message);
-            rabbit.convertAndSend(RabbitMQConfig.ECHO_OUT_QUEUE_ID, stationEntity.getDb_url());
+            String newMessage = "DB URL: " + stationEntity.getDb_url() + "|" + "customer:" + message;
+            rabbit.convertAndSend(RabbitMQConfig.ECHO_OUT_STATION_QUEUE, newMessage);
         }
 
-        rabbit.convertAndSend(RabbitMQConfig.ECHO_OUT_QUEUE_ID, message.toString());
+        rabbit.convertAndSend(RabbitMQConfig.ECHO_OUT_RECEIVER_QUEUE, message.toString());
 
     }
 }

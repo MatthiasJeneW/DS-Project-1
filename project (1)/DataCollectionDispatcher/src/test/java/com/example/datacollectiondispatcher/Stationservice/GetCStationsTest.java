@@ -1,7 +1,5 @@
 package com.example.datacollectiondispatcher.Stationservice;
 
-
-
 import com.example.datacollectiondispatcher.CStationsRepository.CStationsRepository;
 import com.example.datacollectiondispatcher.config.RabbitMQConfig;
 import com.example.datacollectiondispatcher.entity.StationEntity;
@@ -30,13 +28,13 @@ class GetCStationsTest {
     private GetCStations getCStations;
 
     @BeforeEach
-    void setUp(){
+    void setUp() {
         MockitoAnnotations.openMocks(this);
         getCStations = new GetCStations(rabbitTemplate, mockedcStationsRepository);
     }
 
     @Test
-    public void testSendChargingStations(){
+    public void testSendChargingStations() {
         String message = "TestMessage";
         StationEntity stationEntity1 = new StationEntity("db1");
         StationEntity stationEntity2 = new StationEntity("db2");
@@ -46,11 +44,21 @@ class GetCStationsTest {
         getCStations.sendChargingStations(message);
 
         verify(mockedcStationsRepository).findAll();
-        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_QUEUE_ID, "db1");
-        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_QUEUE_ID, "db2");
-        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_QUEUE_ID, "db3");
-        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_QUEUE_ID, message);
-
+        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_STATION_QUEUE, "DB URL: db1|customer:TestMessage");
+        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_STATION_QUEUE, "DB URL: db2|customer:TestMessage");
+        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_STATION_QUEUE, "DB URL: db3|customer:TestMessage");
+        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_RECEIVER_QUEUE, "TestMessage");
     }
 
+    @Test
+    public void testSendChargingStationsWithNoStations() {
+        String message = "TestMessage";
+        when(mockedcStationsRepository.findAll()).thenReturn(List.of());
+
+        getCStations.sendChargingStations(message);
+
+        verify(mockedcStationsRepository).findAll();
+        verify(rabbitTemplate, never()).convertAndSend(eq(RabbitMQConfig.ECHO_OUT_STATION_QUEUE), anyString());
+        verify(rabbitTemplate).convertAndSend(RabbitMQConfig.ECHO_OUT_RECEIVER_QUEUE, "TestMessage");
+    }
 }

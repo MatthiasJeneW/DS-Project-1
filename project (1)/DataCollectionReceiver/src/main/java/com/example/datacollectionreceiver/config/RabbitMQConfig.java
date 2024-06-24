@@ -1,4 +1,4 @@
-package com.example.stationdatacontroller.config;
+package com.example.datacollectionreceiver.config;
 
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
@@ -26,15 +26,18 @@ public class RabbitMQConfig {
     private String rabbitmq_Password;
 
 
-    public static final String ECHO_IN_QUEUE_ID = "getCustomerDetails";
-
-    public static final String ECHO_OUT_QUEUE_PDF = "generatePDF";
-
-    @Bean
-    public Queue echoInQueueID(){ return new Queue(ECHO_IN_QUEUE_ID, false); }
+    public static final String ECHO_OUT_RECEIVER_QUEUE = "echoOutReceiverQueue";
+    public static final String ECHO_OUT_STATION_DATA_QUEUE = "echoOutStationDataQueue";
+    public static final String ECHO_OUT_QUEUE_PDF_GEN = "generatePDF";
 
     @Bean
-    public Queue echoOUTQUEUEID(){ return new Queue(ECHO_OUT_QUEUE_PDF, false);}
+    public Queue echoInQueueID(){ return new Queue(ECHO_OUT_RECEIVER_QUEUE, false); }
+
+    @Bean
+    public Queue echoCollectionQueue(){ return new Queue(ECHO_OUT_STATION_DATA_QUEUE, false);}
+
+    @Bean
+    public Queue echoOUTQUEUEID(){ return new Queue(ECHO_OUT_QUEUE_PDF_GEN, false);}
 
     @Bean
     public ConnectionFactory connectionFactory() {
@@ -47,7 +50,7 @@ public class RabbitMQConfig {
     @Bean
     public RabbitTemplate rabbitTemplate(){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
-        rabbitTemplate.setDefaultReceiveQueue(String.valueOf(ECHO_OUT_QUEUE_PDF));
+        //rabbitTemplate.setDefaultReceiveQueue(String.valueOf(ECHO_OUT_QUEUE_PDF));
         return rabbitTemplate;
     }
 

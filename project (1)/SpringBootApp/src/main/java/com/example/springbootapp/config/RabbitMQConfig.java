@@ -13,11 +13,13 @@ public class RabbitMQConfig {
 
     @Value("${spring.rabbitmq.port}")
     private int RABBITMQ_PORT;
-    public static final String ECHO_IN_QUEUE_ID = "sendCustomerID";
+
+
+    public static final String ECHO_CUSTOMER_ID_QUEUE = "echoCustomerID";
 
     @Bean
-    public Queue echoQueueID(){ return new Queue(ECHO_IN_QUEUE_ID, false); }
-
+    public Queue sendCustomerID(){
+        return new Queue(ECHO_CUSTOMER_ID_QUEUE, false); }
 
     @Bean
     public ConnectionFactory connectionFactory() {
@@ -31,7 +33,7 @@ public class RabbitMQConfig {
     @Bean
     public RabbitTemplate rabbitTemplate(){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
-        rabbitTemplate.setDefaultReceiveQueue(String.valueOf(ECHO_IN_QUEUE_ID));
+        //rabbitTemplate.setDefaultReceiveQueue(String.valueOf(ECHO_CUSTOMER_ID_QUEUE));
         return rabbitTemplate;
     }
 }
