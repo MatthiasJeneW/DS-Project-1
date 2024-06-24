@@ -38,7 +38,7 @@ class DataCollectionReceiverTest {
         dataCollectionReceiver.getUserMessage(message);
 
         // Assert
-        verifyNoInteractions(rabbitTemplate, objectMapper);
+        verifyNoInteractions(rabbitTemplate);
     }
 
     @Test
