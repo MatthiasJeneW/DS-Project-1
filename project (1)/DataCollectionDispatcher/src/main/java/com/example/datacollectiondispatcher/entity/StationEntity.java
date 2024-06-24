@@ -22,9 +22,9 @@ public class StationEntity {
 
     private String db_url;
 
-    private double latitude;
+    private double lat;
 
-    private double longitude;
+    private double lng;
 
     public int getId() {
         return id;
@@ -42,19 +42,19 @@ public class StationEntity {
         this.db_url = db_url;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public double getLat() {
+        return lat;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public void setLat(double latitude) {
+        this.lat = latitude;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public double getLng() {
+        return lng;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
+    public void setLng(double longitude) {
+        this.lng = longitude;
     }
 }
